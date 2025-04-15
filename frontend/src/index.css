@@ -1,6 +1,10 @@
 @import "tailwindcss";
+
+html{
+  font-family: "Poppins",sans-serif;
+}
 body{
-  background: linear-gradient(45deg, #1f1f1f, #26252d);
+  background: linear-gradient(45deg, #151515, #18171b);
   color:floralwhite;
 }
 .main{
@@ -11,13 +15,19 @@ body{
 }
 .main-navigation-list{
   display:flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items:center;
   height:4vw;
+  .middle{
+    display: flex;
+  }
+  .right{
+    display: flex;
+  }
 }
 .logo {
   font-family: 'Bangers', cursive;
-  font-size: 2.4vw;
+  font-size: 1.6vw;
   color: #ddbb2f; 
   letter-spacing: 0.15vw;
   text-shadow:
@@ -25,16 +35,14 @@ body{
     0 0 8px #63551e,
     0 0 12px #ffce00;
   transition: transform 0.1s ease, text-shadow 0.1s ease;
-  padding-left: 5vw;
-  padding-right:1vw;
 }
 .logo:hover{
   color: #ffcc00;
   transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
 .main-navigation-links{
-  font-size: 1.25vw;
-  padding:1vw;
+  font-size: 1.1vw;
+  color:rgb(228, 228, 228)
 }
 .main-navigation-slash{
   font-size:1.25vw;
@@ -55,7 +63,7 @@ body{
  border-top-left-radius: 20px;
  border-top-right-radius: 20px;
 }
-.home-content{
+/* .home-content{
   display:grid;
   grid-template-columns: repeat(4,1fr);
   grid-template-rows: repeat(4,6vw);
@@ -74,7 +82,7 @@ body{
   padding:2vw;
   padding-top:1vw;
   border-right:0.2vw dashed rgb(72, 66, 66);
-}
+} */
 .home-content-small{
   display:flex;
   flex-direction: column;
@@ -83,10 +91,8 @@ body{
   align-items:center;
 }
 .title{
-  font-size:2.2vw;
   color:lightyellow
 }
 .content{
-  font-size:1.5vw;
   color:rgb(100, 104, 107);
 }
