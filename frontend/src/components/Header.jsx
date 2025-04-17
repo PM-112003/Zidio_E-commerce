@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header>
+    <header className="fixed top-0 left-0 right-0 z-10">
       <nav className="main-navigation-bar w-[90%] mx-auto">
         <ul className="main-navigation-list">
           <div className="left">
@@ -8,7 +8,7 @@ const Header = () => {
               <a href="#">HeroWear</a>
             </li>
           </div>
-          <div className="middle flex gap-6">
+          <div className="middle flex gap-8">
             <li className="main-navigation-links">
               <a href="#">Trendings</a>
             </li>
@@ -22,7 +22,7 @@ const Header = () => {
               <a href="#">Track Orders</a>
             </li>
           </div>
-          <div className="right flex gap-4">
+          <div className="right flex gap-8">
             <li className="main-navigation-links">
               <a href="#">Contact Us</a>
             </li>
