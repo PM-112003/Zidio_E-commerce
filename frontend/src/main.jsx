@@ -8,6 +8,9 @@ import {
 import "./index.css";
 import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
+import SignUp from "./forms/SignUp.jsx";
+import SignIn from "./forms/SignIn.jsx";
+import Registration from "./pages/Registration.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +19,14 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Navigate to="home" /> },
       { path: "home", element: <Home /> },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <Registration />,
+    children: [
+      { path: "sign-up", element: <SignUp /> },
+      { path: "sign-in", element: <SignIn /> },
     ],
   },
 ]);

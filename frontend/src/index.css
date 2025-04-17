@@ -2,51 +2,50 @@
 
 html{
   font-family: "Poppins",sans-serif;
+  height: 100%;
 }
+
+
 body{
-  background: linear-gradient(45deg, #151515, #18171b);
+  background: linear-gradient(45deg, #0c0c0c, #1e1c1f) no-repeat ;
   color:floralwhite;
 }
 .main{
   font-family: Arial, Helvetica, sans-serif;
 }
-.main-navigation-bar{
-  /* border-bottom:0.2vw dashed rgb(72, 66, 66); */
+.input--form{
+  @apply border border-neutral-500 text-[1.1rem] py-[.4rem] px-[.5rem] outline-0 rounded-[.2rem] w-full;
 }
-.main-navigation-list{
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-  padding:.8rem 0;
-  .middle{
-    display: flex;
-  }
-  .right{
-    display: flex;
-  }
+.box--form{
+  @apply  border border-neutral-700 w-[30rem] p-4 rounded-[.5rem];
 }
+.submit--form{
+  @apply capitalize w-full bg-[#cfac20] text-[1.2rem] text-black font-medium py-[.3rem]  my-6 rounded-[.2rem] cursor-pointer transition-all duration-300 ease-in-out  hover:bg-[#ffcc00];
+}
+.input_divs--form{
+  @apply flex flex-col gap-[.2rem];
+}
+.error--form{
+ @apply text-red-400 capitalize;
+}
+
+
 .logo {
-  font-family: 'Bangers', cursive;
-  font-size: 1.6vw;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2vw;
   color: #ddbb2f; 
   letter-spacing: 0.15vw;
   text-shadow:
     2px 2px 4px rgba(0, 0, 0, 0.7),
     0 0 8px #63551e,
     0 0 12px #ffce00;
-  transition: transform 0.1s ease, text-shadow 0.1s ease;
+  transition: transform .3s ease , text-shadow 0.3s ease ;
 }
 .logo:hover{
   color: #ffcc00;
   transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
-.main-navigation-links{
-  font-size: 1vw;
-  color:rgb(228, 228, 228)
-}
-.main-navigation-slash{
-  font-size:1.25vw;
-}
+
 
 
 

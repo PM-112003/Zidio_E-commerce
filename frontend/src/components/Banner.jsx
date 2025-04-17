@@ -2,7 +2,7 @@ const Banner = () => {
   return (
     <div className="banner relative">
       <div className="h-screen">
-        <img className="home-img h-full opacity-60" src="home-image.png" />
+        <img className="home-img h-full opacity-55" src="home-image.png" />
       </div>
       <div className="home-content-big absolute bottom-[7rem] left-[3rem] flex flex-col items-start gap-[1rem]">
         <div className="details leading-[3rem]">
