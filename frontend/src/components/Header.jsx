@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-10">
-      <nav className="main-navigation-bar w-[90%] mx-auto py-1 flex justify-between items-baseline">
+      <nav className="main-navigation-bar w-[92%] mx-auto py-1 flex justify-between items-baseline">
         <div className="left">
           <Link to="/home" className="logo capitalize">
             herowear
