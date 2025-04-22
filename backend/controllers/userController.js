@@ -2,59 +2,118 @@ import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import generateToken from "../utils/generateToken.js";
 
-// get all users
-const getAllUsers = () => {};
-
-// add user
-const addUser = async (req, res) => {
+// Sign up user
+export const signup = async (req, res) => {
   try {
-    const { username, email, password, confirm_password } = req.body;
-    const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const matching_email = await User.findOne({ email });
-    const errors = {};
+    const { username, email, password } = req.body;
 
-    if (username.trim().length === 0)
-      errors.username = "username cannot be empty";
-    if (email.trim().length === 0) errors.email = "email cannot be empty";
-    if (!email_regex.test(email)) errors.email = "invalid email format";
-    if (matching_email) errors.email = "email already taken";
-    if (password.trim().length === 0)
-      errors.password = "password cannot be empty";
-    if (confirm_password.trim().length === 0)
-      errors.confirm_password = "field cannot be empty";
-    if (password !== confirm_password)
-      errors.confirm_password = "password not matching";
-    if (Object.keys(errors).length)
-      return res.json({ success: false, message: "signup failed", errors });
+    // Check if user already exists
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+      return res.status(400).json({
+        success: false,
+        message: "User already exists",
+        errors: { email: "Email is already registered" }
+      });
+    }
 
-    const salt = 10;
-    const hashed_pass = await bcrypt.hash(password, salt);
-
-    const new_user = new User({
+    // Create new user
+    const user = await User.create({
       username,
       email,
-      password: hashed_pass,
+      password
     });
 
-    const user = await new_user.save();
+    // Generate token
     const token = generateToken(user._id);
+
+    // Set cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
-    res.json({ success: true, message: "user created", user });
+
+    // Send response
+    res.status(201).json({
+      success: true,
+      message: "User created successfully",
+      user: {
+        _id: user._id,
+        username: user.username,
+        email: user.email
+      }
+    });
   } catch (error) {
-    res.json({ success: "false", message: error.message });
+    res.status(500).json({
+      success: false,
+      message: "Error creating user",
+      error: error.message
+    });
   }
 };
 
-// get user
-const getUser = async () => {};
+// Sign in user
+export const signin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-// update user
-const updateUser = async () => {};
+    // Find user
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid credentials",
+        errors: { email: "Email not found" }
+      });
+    }
 
-// delete user
-const deleteUser = async () => {};
+    // Check password
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid credentials",
+        errors: { password: "Incorrect password" }
+      });
+    }
 
-export { getAllUsers, addUser, getUser, updateUser, deleteUser };
+    // Generate token
+    const token = generateToken(user._id);
+
+    // Set cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+    });
+
+    // Send response
+    res.status(200).json({
+      success: true,
+      message: "Login successful",
+      user: {
+        _id: user._id,
+        username: user.username,
+        email: user.email
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error signing in",
+      error: error.message
+    });
+  }
+};
+
+// Sign out user
+export const signout = (req, res) => {
+  res.clearCookie("token");
+  res.status(200).json({
+    success: true,
+    message: "Logged out successfully"
+  });
+};

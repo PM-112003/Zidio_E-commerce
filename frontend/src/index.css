@@ -1,97 +1,65 @@
 @import "tailwindcss";
-
 html{
-  font-family: "Poppins",sans-serif;
+  min-height:45.25vw;
 }
 body{
-  background: linear-gradient(45deg, #151515, #18171b);
-  color:floralwhite;
+  font-family: "Poppins",sans-serif;
+  color:rgb(255, 255, 255);
+  background: linear-gradient(45deg, #0c0c0c, #1e1c1f) no-repeat;
 }
 .main{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.input--form{
+  @apply border border-neutral-500 text-[1.1vw] py-[.4vw] px-[.5vw] outline-0 rounded-[.2vw] w-full;
+}
+.box--form{
+  @apply  border border-neutral-700 w-[30vw] p-4 rounded-[.5vw];
+}
+.submit--form{
+  @apply capitalize w-full bg-[#cfac20] text-[1.2vw] text-black font-medium py-[.3vw]  my-6 rounded-[.2vw] cursor-pointer transition-all duration-300 ease-in-out  hover:bg-[#ffcc00];
+}
+.input_divs--form{
+  @apply flex flex-col gap-[.2vw];
+}
+.error--form{
+ @apply text-red-400 capitalize;
 }
 .main-navigation-bar{
-  border-bottom:0.2vw dashed rgb(72, 66, 66);
+  align-items: center;
 }
-.main-navigation-list{
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-  height:4vw;
-  .middle{
-    display: flex;
-  }
-  .right{
-    display: flex;
-  }
+
+.home-img{
+  width:150vw;
+  height:45.25vw;
+}
+.yellow-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:99vw;
+  height:45.25vw;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.3; 
+  pointer-events: none;
+  mix-blend-mode: overlay; /* try 'overlay' or 'screen' for different effects */
 }
 .logo {
-  font-family: 'Bangers', cursive;
-  font-size: 1.6vw;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2vw;
   color: #ddbb2f; 
-  letter-spacing: 0.15vw;
+  letter-spacing: 0.13w;
+  margin-top:3w;
   text-shadow:
     2px 2px 4px rgba(0, 0, 0, 0.7),
     0 0 8px #63551e,
     0 0 12px #ffce00;
-  transition: transform 0.1s ease, text-shadow 0.1s ease;
+  transition: transform .3s ease , text-shadow 0.3s ease ;
 }
 .logo:hover{
   color: #ffcc00;
-  transition: transform 0.2s ease, text-shadow 0.2s ease;
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
-.main-navigation-links{
-  font-size: 1.1vw;
-  color:rgb(228, 228, 228)
-}
-.main-navigation-slash{
-  font-size:1.25vw;
-}
-.main-navigation-links:hover{
-  background-color: rgb(29, 24, 24);
-}
-.home{
-  align-items:center;
-  justify-content:center;
-  margin-left:5vw;
-  margin-right:5vw;
-  margin-top:2vw;
-}
-.home-img{
- width:90vw;
- height:35vw;
- border-top-left-radius: 20px;
- border-top-right-radius: 20px;
-}
-/* .home-content{
-  display:grid;
-  grid-template-columns: repeat(4,1fr);
-  grid-template-rows: repeat(4,6vw);
-  border-left:0.12vw dashed rgb(99, 84, 84);
-  border-right:0.12vw dashed rgb(99, 84, 84);
-  border-bottom:0.12vw dashed rgb(99, 84, 84);
-  border-bottom-left-radius:20px;
-  border-bottom-right-radius:20px;
-}
-.home-content-big{
-  display:flex;
-  flex-direction:column;
-  grid-column: span 2;
-  grid-row: span 4;
-  align-items:center;
-  padding:2vw;
-  padding-top:1vw;
-  border-right:0.2vw dashed rgb(72, 66, 66);
-} */
-.home-content-small{
-  display:flex;
-  flex-direction: column;
-  grid-column: span 1;
-  grid-row: span 1;
-  align-items:center;
-}
-.title{
-  color:lightyellow
-}
-.content{
-  color:rgb(100, 104, 107);
+.product-section{
+  margin-bottom:40vw;
 }
