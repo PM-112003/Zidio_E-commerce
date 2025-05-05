@@ -4,7 +4,9 @@ import { Outlet } from "react-router-dom";
 function App({isLoggedIn, setIsLoggedIn}) {
   return (
     <div className="application bg-slate-950">
-      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      
+      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      
       <Outlet />
     </div>
   );
