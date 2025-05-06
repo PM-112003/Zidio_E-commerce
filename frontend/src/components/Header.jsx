@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'; // Import correctly
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Header = ({isLoggedIn, setIsLoggedIn}) => {
   const navigate = useNavigate();
@@ -27,12 +27,20 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
             herowear
           </Link>
           <div className="flex gap-5 ml-6">
-            <Link className="text-[1.05vw] capitalize">Shop</Link>
+            <Link className="text-[1.05vw] capitalize">Shop Now</Link>
             <Link className="text-[1.05vw] capitalize">About Us</Link>
           </div>
         </div>
         
         <div className="right flex items-center gap-5">
+          <div className="flex items-center bg-slate-900 rounded-xl px-3 py-1">
+            <FontAwesomeIcon icon={faSearch} className="text-white mr-2" />
+            <input
+              type="text"
+              placeholder="Search..."
+              className="bg-transparent outline-none text-white text-sm placeholder-gray-400"
+            />
+          </div>
           <Link className="transition-transform duration-300 transform hover:scale-125">
             <FontAwesomeIcon icon={regularHeart} className="text-[1.05vw] text-[#c2c2c2]" />
           </Link>

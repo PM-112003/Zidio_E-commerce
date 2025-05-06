@@ -165,6 +165,7 @@ const Banner = () => {
 
         <Footer></Footer>
     </div>
+    
   );
 };
 
