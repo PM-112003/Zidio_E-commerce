@@ -18,6 +18,8 @@ const Banner = () => {
   };
 
   
+
+  
   return (
     <div className="w-full h-screen flex flex-col bg-slate-950">
         
@@ -46,7 +48,7 @@ const Banner = () => {
         {/* Trendings and recently seen */}
         <div className="w-full h-auto p-5 flex flex-col items-center bg-slate-950">
             {/* Heading of section : trending */}
-            <div className="text-5xl font-medium mb-10">Most Popular in men</div>
+            <div className="text-5xl font-medium mb-10">Trending</div>
             <div className="w-[80%] h-auto py-5 flex flex-col items-center">
 
               {/*Most popular in men */}
@@ -84,82 +86,96 @@ const Banner = () => {
 
             </div>
 
-            <div className="w-[80%] border-[1px] rounded-2xl border-white mt-5"></div>
-            {/* Most popular in women */}
-            <div className="text-5xl font-medium mb-10 mt-5">Most Popular in women</div>
-            <div className="w-[80%] h-auto py-5 flex flex-col items-center">
+            <div className="border-[1px] border-white w-[80%] rounded-4xl my-5"></div>
 
-              <div className="flex w-full justify-center">
-              
-                <Product_card 
-                  image="Men_shirt_1.webp"
-                  brand="Bewakoof®"
-                  title="Men's Chocolate Brown Iron Truck Graphic T-shirt"
-                  price={699}
-                  originalPrice={1899}
-                  discount="63% OFF"
-                  rating={4.5}
-                />
+            {/* Section of searches */}
 
-                <Product_card 
-                  image="Men_shirt_2.webp"
-                  brand="Bewakoof®"
-                  title="Black Panther shirt"
-                  price={999}
-                  originalPrice={2999}
-                  rating={4.5}
-                />
+            <div className="text-4xl font-medium mb-10">See search results here</div>
+            <div className="w-[80%] h-[600px] scrollbar-hide border-2 border-white rounded-xl overflow-y-auto flex flex-col items-center p-4">
 
-                <Product_card 
-                  image="Men_shirt_2.webp"
-                  brand="Bewakoof®"
-                  title="Black Panther shirt"
-                  price={999}
-                  originalPrice={2999}
-                  rating={4.5}
-                />
+                {/* First row */}
+                <div className="flex gap-2 p-2">
+                  <Product_card 
+                    image="Men_shirt_1.webp"
+                    brand="Bewakoof®"
+                    title="Men's Chocolate Brown Iron Truck Graphic T-shirt"
+                    price={699}
+                    originalPrice={1899}
+                    discount="63% OFF"
+                    rating={4.5}
+                  />
 
-              </div>
+                  <Product_card 
+                    image="Men_shirt_1.webp"
+                    brand="Bewakoof®"
+                    title="Men's Chocolate Brown Iron Truck Graphic T-shirt"
+                    price={699}
+                    originalPrice={1899}
+                    discount="63% OFF"
+                    rating={4.5}
+                  />
 
+                  <Product_card 
+                    image="Men_shirt_2.webp"
+                    brand="Bewakoof®"
+                    title="Black Panther shirt"
+                    price={999}
+                    originalPrice={2999}
+                    rating={4.5}
+                  />
+
+                  <Product_card 
+                    image="Men_shirt_2.webp"
+                    brand="Bewakoof®"
+                    title="Black Panther shirt"
+                    price={999}
+                    originalPrice={2999}
+                    rating={4.5}
+                  />
+                </div>
+
+                {/* second row */}
+                <div className="flex gap-2 p-2">
+                  <Product_card 
+                    image="Men_shirt_1.webp"
+                    brand="Bewakoof®"
+                    title="Men's Chocolate Brown Iron Truck Graphic T-shirt"
+                    price={699}
+                    originalPrice={1899}
+                    discount="63% OFF"
+                    rating={4.5}
+                  />
+
+                  <Product_card 
+                    image="Men_shirt_1.webp"
+                    brand="Bewakoof®"
+                    title="Men's Chocolate Brown Iron Truck Graphic T-shirt"
+                    price={699}
+                    originalPrice={1899}
+                    discount="63% OFF"
+                    rating={4.5}
+                  />
+
+                  <Product_card 
+                    image="Men_shirt_2.webp"
+                    brand="Bewakoof®"
+                    title="Black Panther shirt"
+                    price={999}
+                    originalPrice={2999}
+                    rating={4.5}
+                  />
+
+                  <Product_card 
+                    image="Men_shirt_2.webp"
+                    brand="Bewakoof®"
+                    title="Black Panther shirt"
+                    price={999}
+                    originalPrice={2999}
+                    rating={4.5}
+                  />
+                </div>
             </div>
-
-            <div className="w-[80%] border-[1px] rounded-2xl border-white mt-5"></div>
-            <div className="text-5xl font-medium mb-10 mt-5">Recently seen</div>
-            <div className="w-[80%] h-auto py-5 flex flex-col items-center">
-
-              <div className="flex w-full justify-center">
-              
-                <Product_card 
-                  image="Men_shirt_1.webp"
-                  brand="Bewakoof®"
-                  title="Men's Chocolate Brown Iron Truck Graphic T-shirt"
-                  price={699}
-                  originalPrice={1899}
-                  discount="63% OFF"
-                  rating={4.5}
-                />
-
-                <Product_card 
-                  image="Men_shirt_2.webp"
-                  brand="Bewakoof®"
-                  title="Black Panther shirt"
-                  price={999}
-                  originalPrice={2999}
-                  rating={4.5}
-                />
-
-                <Product_card 
-                  image="Men_shirt_2.webp"
-                  brand="Bewakoof®"
-                  title="Black Panther shirt"
-                  price={999}
-                  originalPrice={2999}
-                  rating={4.5}
-                />
-
-              </div>
-
-            </div>
+            
 
         </div>
 

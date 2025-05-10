@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'; // Import correctly
 import { faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useState } from "react";
+import FilterSearchBar from "./utilities/FilterSearchBar";
 
 const Header = ({isLoggedIn, setIsLoggedIn}) => {
   const navigate = useNavigate();
@@ -19,6 +21,16 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
     }
   };
 
+  const [filters, setFilters] = useState([
+    'Accounts',
+    'Aerospace Engineering',
+    'Web Development'
+  ]);
+
+  const handleRemove = (itemToRemove) => {
+    setFilters(filters.filter(item => item !== itemToRemove));
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-10 bg-slate-950">
       <nav className="main-navigation-bar w-[92%] mx-auto py-1 flex justify-between items-baseline">
@@ -32,15 +44,8 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
           </div>
         </div>
         
-        <div className="right flex items-center gap-5">
-          <div className="flex items-center bg-slate-900 rounded-xl px-3 py-1">
-            <FontAwesomeIcon icon={faSearch} className="text-white mr-2" />
-            <input
-              type="text"
-              placeholder="Search..."
-              className="bg-transparent outline-none text-white text-sm placeholder-gray-400"
-            />
-          </div>
+        <div className="right flex items-center gap-10">
+          <FilterSearchBar></FilterSearchBar>
           <Link className="transition-transform duration-300 transform hover:scale-125">
             <FontAwesomeIcon icon={regularHeart} className="text-[1.05vw] text-[#c2c2c2]" />
           </Link>
